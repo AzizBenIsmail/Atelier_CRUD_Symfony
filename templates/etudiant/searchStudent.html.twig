@@ -1,0 +1,16 @@
+{{ form(searchStudent) }}
+<table border="1">
+    <tr>
+        <td>NSC</td>
+        <td>Email</td>
+        <td>Classe</td>
+        <td>Action</td>
+    </tr>
+    {% for student in resultOfSearch %}
+        <tr>
+            <td>{{ student.NCL }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.classroom.name }}</td>
+        </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,28 @@
+<h2>Etudiant</h2>
+<table border="5">
+<tr>
+    <td>NCL</td>
+    <td>EMAIL</td>
+    <td>classroom</td>
+</tr>
+    {% for a in e %}
+    <tr>
+        <td>{{ a.ncl}}</td>
+        <td>{{ a.Email }}</td>
+       <td>{{ a.classroom.Name }}</td>
+
+
+
+        <td>
+   <form action="{{ path('supprimer',{'ncl':a.ncl}) }}">
+            <button>supprime</button>
+        </form>
+        </td>
+        <td>
+            <form action="{{ path('updateStudent',{'ncl':a.ncl}) }}">
+                <button>Modifier</button>
+          </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

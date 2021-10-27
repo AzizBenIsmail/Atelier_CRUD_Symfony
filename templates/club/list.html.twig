@@ -1,0 +1,47 @@
+
+<h1>La liste des formations</h1>
+<table border="5">
+    <tr>
+        <td>Référence</td>
+        <td>Titre</td>
+        <td>Description</td>
+        <td>Nombre de participants</td>
+        <td>Action</td>
+        <td>Action</td>
+    </tr>
+    <tr>
+        {% for f in liste %}
+        <td>{{ f['ref'] }}</td>
+        <td>{{ f['Titre'] }}</td>
+        <td>{{ f['Description'] }}</td>
+        <td>{{ f['nb_participants'] }}</td>
+        <td>
+            {% if f.nb_participants==0  %}
+            <form action="{{ path('detail',{'nom':f.Titre}) }}">
+            <button>participer</button>
+            </form>
+            {% endif %}
+        </td>
+        <td>
+            <a href="{{ path('detail',{'nom':f.Titre})  }}">participan</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<p>le nbr {{ liste|length }}</p>
+
+{# Calcul de nombre total de participants #}
+{% set nbTot = 0 %}
+{% for f in liste %}
+    {% set nbTot = nbTot + f.nb_participants %}
+{% endfor %}
+<p>Le nombre de formation est {{liste|length}}</p>
+<p>Le nombre total de participants est {{ nbTot }}</p>
+
+{# Calcul de nombre total de participants #}
+{% set nbTot = 0 %}
+{% for f in liste %}
+    {% set nbTot = nbTot + f.nb_participants %}
+{% endfor %}
+<p>Le nombre de formation est {{liste|length}}</p>
+<p>Le nombre total de participants est {{ nbTot }}</p>
